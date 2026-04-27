@@ -44,29 +44,19 @@ function playGame() {
         let humanChoiceLower = humanChoice.toLowerCase();
         let computerChoiceLower = computerChoice.toLowerCase();
 
-        if (humanChoiceLower === 'rock') {
-            if (computerChoiceLower === 'scissors')
-                humanWinRound = true;
-            else if (computerChoiceLower === 'paper')
-                computerWinRound = true;
-        }
-        else if (humanChoiceLower === 'paper') {
-            if (computerChoiceLower === 'rock')
-                humanWinRound = true;
-            else if (computerChoiceLower === 'scissors')
-                computerWinRound = true;
-        }
-        else if (humanChoiceLower === 'scissors') {
-            if (computerChoiceLower === 'paper')
-                humanWinRound = true;
-            else if (computerChoiceLower === 'rock')
+        if (humanChoiceLower !== computerChoiceLower) {
+            if (humanChoiceLower === 'rock' && computerChoiceLower === 'scissors')
+                    humanWinRound = true;
+            else if (humanChoiceLower === 'paper' && computerChoiceLower === 'rock')
+                    humanWinRound = true;
+            else if (humanChoiceLower === 'scissors' && computerChoiceLower === 'paper')
+                    humanWinRound = true;
+            else 
                 computerWinRound = true;
         }
 
         console.log ("You: " + humanChoice);
         console.log ("Computer: " + computerChoice);
-
-
         if (humanWinRound) {
             humanScore += 1;
             console.log("You win! " + humanChoice + " beats " + computerChoice +".");
